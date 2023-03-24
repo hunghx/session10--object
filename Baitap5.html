@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // tao đối tượng
+        let calculator = {
+            value1: 0,
+            value2: 0,
+            Read: function (a, b) {
+                this.value1 = a
+                this.value2 = b
+            },
+            Sum: function () {
+                return this.value1 + this.value2
+            },
+            Multi: function () {
+                return this.value1 * this.value2
+            }
+        }
+        calculator.Read(5, 6);
+        console.log(calculator);
+        let sum = calculator.Sum();
+        console.log(sum);
+        let multi = calculator.Multi()
+        console.log(multi);
+
+    </script>
+</body>
+
+</html>

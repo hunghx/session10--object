@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //cách 1
+        // đối tượng rỗng {}
+        // function isEmpty(obj) {
+        //     if (JSON.stringify(obj) === "{}") {
+        //         return true
+        //     }
+        //     return false
+        // }
+        let obj1 = {};
+        let obj2 = {
+            name: "hùng",
+            age: 23
+        }
+
+
+        // cách 2
+
+
+        // function isEmpty(obj) {
+        //     let arrKey = Object.keys(obj)
+        //     return arrKey.length === 0
+        // }
+
+        // cách 3
+        function isEmpty(obj) {
+            let arrValue = Object.values(obj)
+            return arrValue.length === 0
+        }
+        console.log(isEmpty(obj1));
+        console.log(isEmpty(obj2));
+        //
+
+    </script>
+</body>
+
+</html>

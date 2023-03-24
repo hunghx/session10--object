@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- // tạo đối tượng -->
+    <script>
+        // sử dụng {}
+        let student1 = {
+            id: 'SV001',
+            name: "Nguyễn Văn A",
+            class: "JAVA-12",
+            action: function () {
+                console.log("đi học")
+            }
+        }
+
+
+        console.log(student1.class);
+        student1.action()
+        // cachs 2 , theo kieur function
+        function Student2(id, name, className) {
+            this.id = id
+            this.name = name
+            this.class = className
+            this.action = function () {
+                console.log("đi chơi")
+            }
+        }
+        let newStudent = new Student2("SV002", "Nguyễn Văn B", "JAVA-13")
+        console.log(newStudent.id)
+        //cách 3 funtion + return {}
+        function Student3(id, name, className) {
+            return {
+                id: id,
+                name: name,
+                class: className,
+                action: function () {
+                    console.log("đi học")
+                }
+            }
+        }
+        let student3 = new Student2("SV003", "Nguyễn Văn C", "JAVA-14")
+        console.log(student3.class);
+
+        // cách 4 sử dụng dối tượng Object
+        let student4 = new Object()
+        student4.id = "SV004"
+        console.log(student4.id);
+        // cách 5 sử dụng class trong ES6
+
+        class Student {
+            // hàm khởi tạo
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+        }
+        let newStudent1 = new Student("Hồ XUân Hùng", 22)
+        console.log(newStudent1.name);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Book {
+
+            bookId
+            bookName
+            price
+            author
+            bookStatus
+            constructor(id, name, pri, auth, status) {
+                this.bookId = id
+                this.bookName = name
+                this.price = pri;
+                this.author = auth
+                this.bookStatus = status
+            }
+            inputData = function () {
+                this.bookId = prompt("nhập vào mã sách");
+                this.bookName = prompt("Nhập vào tên sách")
+                this.price = +prompt("Nhập vào giá sách")
+                this.author = prompt("Nhập vào tác giả")
+                this.bookStatus = prompt("Nhập vào trạng thái của sách")
+            }
+            displayData = function () {
+                let string = `Mã sách : ${this.bookId}, Tên sách: ${this.bookName}, Giá sách: ${this.price}, Tên tác giả : ${this.author},Trạng thái sách: ${this.bookStatus === 'true' ? "còn sách" : "hết sách"}`;
+                console.log(string)
+            }
+        }
+        // chức năng 1 thêm dữ liệu sách và lwuu vào mảng
+
+        let listBooks = [new Book(1, "Gió", 100), new Book(2, "Biển", 50), new Book(3, "Sóng", 40), new Book(4, "Cây", 200)];
+        // let number = +prompt("nhập vào số lượng cuốn sách bạn muốn thêm mới")
+        // for (let i = 0; i < number; i++) {
+        //     let newBook = new Book();
+        //     newBook.inputData();
+        //     listBooks.push(newBook);
+        // }
+        // hiển thị danh sách các cuốn sách
+        for (let i = 0; i < listBooks.length; i++) {
+            listBooks[i].displayData();
+        }
+
+        //cho phép cập nhật thông tin
+        // yêu cầu người dùng nhập vào bookId muốn thay đổi thông tin
+        // let bookIdUpdate = prompt("Nhập vào id muốn cập nhật")
+        // let checkexist = false;
+        // for (let i = 0; i < listBooks.length; i++) {
+        //     if (listBooks[i].bookId === bookIdUpdate) {
+        //         checkexist = true;
+        //         listBooks[i].bookName = prompt("Nhập vào tên sách mới, tên cũ là : " + listBooks[i].bookName);
+        //         listBooks[i].price = +prompt("Nhập vào giá mới");
+        //         listBooks[i].author = prompt("nhập tên tác giả mới");
+        //         listBooks[i].bookStatus = prompt("Nhập vào trạng thái mới");
+        //         break;
+        //     }
+        // }
+        // if (checkexist === false) {
+        //     console.log("Id bạn vừa nhập không tồn tại")
+        // }
+        // for (let i = 0; i < listBooks.length; i++) {
+        //     listBooks[i].displayData();
+        // }
+
+        // xoá theo id 
+        // let bookIdDelete = +prompt("Nhập vào id muốn xoá")
+        // let checkexistDel = false;
+        // for (let i = 0; i < listBooks.length; i++) {
+        //     if (listBooks[i].bookId === bookIdDelete) {
+        //         listBooks.splice(i, 1);
+        //     }
+        // }
+        // for (let i = 0; i < listBooks.length; i++) {
+        //     listBooks[i].displayData();
+        // }
+
+        for (let i = 0; i < listBooks.length - 1; i++) {
+            for (let j = i + 1; j < listBooks.length; j++) {
+                if (listBooks[i].price > listBooks[j].price) {
+                    let temp = listBooks[i];
+                    listBooks[i] = listBooks[j]
+                    listBooks[j] = temp;
+                }
+            }
+        }
+        for (let i = 0; i < listBooks.length; i++) {
+            listBooks[i].displayData();
+        }
+        //
+        let searchName = 'ây';
+
+        let searchList = [];
+        for (let i = 0; i < listBooks.length; i++) {
+            if (listBooks[i].bookName.includes(searchName)) {
+                searchList.push(listBooks[i]);
+            }
+        }
+        console.log("danh sách tìm kiếm khớp là");
+        for (let i = 0; i < searchList.length; i++) {
+            searchList[i].displayData();
+        }
+    </script>
+</body>
+
+</html>
